@@ -1,0 +1,74 @@
+
+
+
+
+Chapter 1: Hello World Application
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=> The application will exist in a package. In Python, a sub-directory that includes a __init__.py file is considered a package, and can be imported. When you import a package, the __init__.py executes and defines what symbols the package exposes to the outside world.
+
+
+
+
+
+
+Chapter 2: Templates
+^^^^^^^^^^^^^^^^^^^^^
+
+
+=> Templates help achieve this separation between presentation and business logic. In Flask, templates are written as separate files, stored in a templates folder that is inside the application package.
+
+
+app/routes.py: Use render\_template() function
+---------------------------------------------
+from flask import render_template
+from app import app
+
+@app.route('/')
+@app.route('/index')
+def index():
+    user = {'username': 'Miguel'}
+    return render_template('index.html', title='Home', user=user)
+
+
+
+
+app/templates/index.html: Main page template
+-----------------------------------------------
+<html>
+    <head>
+        <title>{{ title }} - Microblog</title>
+    </head>
+    <body>
+        <h1>Hello, {{ user.username }}!</h1>
+    </body>
+</html>
+
+
+
+
+
+Chapter 3 : Web Forms
+^^^^^^^^^^^^^^^^^^^^^^
+
+Configuration
+So far the application is very simple, and for that reason I did not need to worry about its configuration. But for any applications except the simplest ones, you are going to find that Flask (and possibly also the Flask extensions that you use) offer some amount of freedom in how to do things, and you need to make some decisions, which you pass to the framework as a list of configuration variables.
+
+config.py: Secret key configuration
+------------------------------------
+import os
+
+class Config(object):
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+
+
+
+
+app/__init__.py: Flask configuration
+---------------------------------------
+from flask import Flask
+from config import Config
+
+app = Flask(__name__)
+app.config.from_object(Config)
+
+from app import routes

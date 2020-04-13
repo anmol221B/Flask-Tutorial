@@ -1,0 +1,10 @@
+<!-- I designed the user profile page so that it displays the posts written by the user, along with their avatars. Now I want the index page to also display posts with a similar layout. I could just copy/paste the portion of the template that deals with the rendering of a post, but that is really not ideal because later if I decide to make changes to this layout I'm going to have to remember to update both templates.
+
+Instead, I'm going to make a sub-template that just renders one post, and then I'm going to reference it from both the user.html and index.html templates. To begin, I can create the sub-template, with just the HTML markup for a single post. I'm going to name this template app/templates/_post.html. The _ prefix is just a naming convention to help me recognize which template files are sub-templates. -->
+
+ <table>
+        <tr valign="top">
+            <td><img src="{{ post.author.avatar(36) }}"></td>
+            <td>{{ post.author.username }} says:<br>{{ post.body }}</td>
+        </tr>
+</table>
