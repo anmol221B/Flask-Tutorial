@@ -1,4 +1,4 @@
-2020-04-13 01:28:16,742 ERROR: Exception on /register [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+2020-04-13 01:30:30,300 ERROR: Exception on /register [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/sher/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
     cursor, statement, parameters, context
@@ -67,9 +67,9 @@ Traceback (most recent call last):
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
 [SQL: INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?)]
-[parameters: ('sher1', 'anm@gmail.com', 'pbkdf2:sha256:150000$KRhjoiZR$cedc3b8c9b94e98a1368b9d70f2b8ca0b0f7d93e6ba63dce5904664c820c0921', None, '2020-04-12 19:58:16.741786')]
+[parameters: ('john1', 'john@gmail.com', 'pbkdf2:sha256:150000$7ArKHvr4$30280511b38951b274b0a52e7d1b3cb45c6e1d7046a31a40f2c65c41af9bf555', None, '2020-04-12 20:00:30.299311')]
 (Background on this error at: http://sqlalche.me/e/gkpj)
-2020-04-13 01:28:17,308 ERROR: Exception on /register [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+2020-04-13 01:30:32,803 ERROR: Exception on /register [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/sher/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
     cursor, statement, parameters, context
@@ -138,6 +138,5 @@ Traceback (most recent call last):
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
 [SQL: INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?)]
-[parameters: ('sher1', 'anm@gmail.com', 'pbkdf2:sha256:150000$ewDWg6Ga$69ef0ac90335cc50f4121dffc1ee5b1cc454e0e4da313a041aeb7bf9a6fd785a', None, '2020-04-12 19:58:17.307619')]
+[parameters: ('john1', 'john@gmail.com', 'pbkdf2:sha256:150000$xyDoKFd5$2c8286bccdd8313dcc6e30846f3de9893f69f966d3a5edeeb699d1e349b84c14', None, '2020-04-12 20:00:32.802758')]
 (Background on this error at: http://sqlalche.me/e/gkpj)
-2020-04-13 01:28:51,510 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]

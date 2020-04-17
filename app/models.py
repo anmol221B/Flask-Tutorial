@@ -36,6 +36,21 @@ from hashlib import md5
 
 
 
+
+
+
+
+# This is a direct translation of the association table from my diagram above. Note that I am not declaring this table as a model, like I did for the users and posts tables. Since this is an auxiliary 
+# table that has no data other than the foreign keys, I created it without an associated model class.
+
+followers = db.Table('followers',
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
+)
+
+
+
+
 class User(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -44,7 +59,9 @@ class User(UserMixin,db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
-    
+    followed = db.relationship('User',secondary=followers, primaryjoin=(followers.c.follower_id==id), 
+    														secondaryjoin=(followers.c.followed_id==id),backref=db.backref('followers',lazy='dynamic'),lazy='dynamic')
+
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -59,7 +76,24 @@ class User(UserMixin,db.Model):
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size) 
 
+    def follow(self,user):
+    	if not self.is_following(user):
+    		self.followed.append(user)
 
+    def unfollow(self,user):
+    	if self.is_following(user):
+    		self.followed.remove(user)
+
+    def is_following(self,user):
+    	return self.followed.filter(followers.c.followed_id==user.id).count()>0
+
+    def followed_post(self):
+    	 	followed = Post.query.join(followers,followers.c.followed_id==Post.user_id).filter(followers.c.follower_id==self.id)
+    	 	own = Post.query.filter_by(user_id=self.id)
+    	 	return followed.union(own).order_by(Post.timestamp.desc())    	
+
+# I'm going to implement the "follow" and "unfollow" functionality as methods in the User model. It is always best to move the application logic away from view functions and into models or other 
+# auxiliary classes or modules, because as you will see later in this chapter, that makes unit testing much easier.
 
 # The User class created above inherits from db.Model, a base class for all models from Flask-SQLAlchemy. This class defines several fields as class variables. 
 # Fields are created as instances of the db.Column class, which takes the field type as an argument, plus other optional arguments that, 
@@ -142,3 +176,9 @@ class Post(db.Model):
 # registered you can issue a single db.session.commit(), which writes all the changes atomically. If at any time while working on a session there is an error, a call to db.session.rollback() will 
 # abort the session and remove any changes stored in it. The important thing to remember is that changes are only written to the database when db.session.commit() is called. Sessions guarantee that 
 # the database will never be left in an inconsistent state.
+
+
+# I hope you realize how useful it is to work with a migration framework. Any users that were in the database are still there, the migration framework surgically applies the changes in 
+# the migration script without destroying any data.
+
+
