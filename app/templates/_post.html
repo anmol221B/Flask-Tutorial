@@ -3,8 +3,13 @@
 Instead, I'm going to make a sub-template that just renders one post, and then I'm going to reference it from both the user.html and index.html templates. To begin, I can create the sub-template, with just the HTML markup for a single post. I'm going to name this template app/templates/_post.html. The _ prefix is just a naming convention to help me recognize which template files are sub-templates. -->
 
  <table>
-        <tr valign="top">
-            <td><img src="{{ post.author.avatar(36) }}"></td>
-            <td>{{ post.author.username }} says:<br>{{ post.body }}</td>
-        </tr>
+    <tr valign="top">
+        <td><img src="{{ post.author.avatar(36) }}"></td>
+        <td>
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                {{ post.author.username }}
+            </a>
+            says:<br>{{ post.body }}
+        </td>
+    </tr>
 </table>

@@ -1,30 +1,4 @@
-2020-04-17 23:06:46,145 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:07:14,608 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:14:14,781 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:17:32,358 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:20:06,913 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:20:27,991 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:20:54,733 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:21:12,148 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:25:27,444 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:32:26,009 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:36:24,431 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:38:18,441 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:39:30,396 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:42:25,115 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:45:01,380 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:45:21,884 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:52:00,247 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-17 23:52:09,367 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 00:08:23,190 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 00:08:34,580 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 00:09:48,703 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 00:09:50,990 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 00:10:14,874 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 00:10:41,160 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 00:10:45,262 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 02:54:06,785 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 02:55:58,072 ERROR: Exception on /edit_profile [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+2020-04-18 02:59:19,639 ERROR: Exception on /edit_profile [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,11 +26,11 @@ Traceback (most recent call last):
     stop_validation = self._run_validation_chain(form, chain)
   File "/home/sher/.local/lib/python3.6/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
     validator(form, self)
-  File "/home/sher/flask_tut/app/forms.py", line 42, in validate_username
-    if username.data != original_username:
-NameError: name 'original_username' is not defined
-2020-04-18 02:57:41,417 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 02:57:54,948 ERROR: Exception on /edit_profile [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+TypeError: validate_username() missing 1 required positional argument: 'username'
+2020-04-18 03:02:34,657 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 19:21:11,099 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 20:06:34,895 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 20:06:41,687 ERROR: Exception on /index [GET] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -72,23 +46,28 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/sher/.local/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/sher/flask_tut/app/routes.py", line 150, in edit_profile
-    if form.validate_on_submit():
-  File "/home/sher/.local/lib/python3.6/site-packages/flask_wtf/form.py", line 100, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/fields/core.py", line 206, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
-    validator(form, self)
-  File "/home/sher/flask_tut/app/forms.py", line 42, in validate_username
-    if username.data != original_username:
-NameError: name 'original_username' is not defined
-2020-04-18 02:58:31,944 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
-2020-04-18 02:58:41,483 ERROR: Exception on /edit_profile [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+  File "/home/sher/flask_tut/app/routes.py", line 17, in index
+    return render_template('index.html', title='Home Page')
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sher/flask_tut/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/sher/flask_tut/app/templates/base.html", line 29, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/sher/flask_tut/app/templates/index.html", line 8, in block "content"
+    {{ form.hidden_tag() }}
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2020-04-18 20:06:48,124 ERROR: Exception on /index [GET] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -104,19 +83,50 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/sher/.local/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/sher/flask_tut/app/routes.py", line 150, in edit_profile
-    if form.validate_on_submit():
-  File "/home/sher/.local/lib/python3.6/site-packages/flask_wtf/form.py", line 100, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/fields/core.py", line 206, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
-    validator(form, self)
-  File "/home/sher/flask_tut/app/forms.py", line 42, in validate_username
-    if username.data != original_username:
-NameError: name 'username' is not defined
-2020-04-18 02:59:10,979 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+  File "/home/sher/flask_tut/app/routes.py", line 17, in index
+    return render_template('index.html', title='Home Page')
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sher/flask_tut/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/sher/flask_tut/app/templates/base.html", line 29, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/sher/flask_tut/app/templates/index.html", line 8, in block "content"
+    {{ form.hidden_tag() }}
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2020-04-18 20:07:42,592 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 20:27:30,242 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 20:28:08,883 ERROR: Exception on /index [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/sher/flask_tut/app/routes.py", line 17, in index
+    post = Post(body=form.post.data,author=current_user)
+NameError: name 'Post' is not defined
+2020-04-18 20:28:42,684 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 20:32:32,886 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 20:43:46,889 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 20:43:50,737 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 21:05:18,714 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]

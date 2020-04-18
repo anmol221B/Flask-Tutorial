@@ -1,4 +1,4 @@
-2020-04-18 02:59:19,639 ERROR: Exception on /edit_profile [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+2020-04-18 21:05:24,107 ERROR: Exception on /index [GET] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,17 +14,79 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/sher/.local/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/sher/flask_tut/app/routes.py", line 150, in edit_profile
-    if form.validate_on_submit():
-  File "/home/sher/.local/lib/python3.6/site-packages/flask_wtf/form.py", line 100, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/fields/core.py", line 206, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/home/sher/.local/lib/python3.6/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
-    validator(form, self)
-TypeError: validate_username() missing 1 required positional argument: 'username'
-2020-04-18 03:02:34,657 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+  File "/home/sher/flask_tut/app/routes.py", line 23, in index
+    return render_template('index.html', title='Home Page',posts=posts)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/sher/flask_tut/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/sher/flask_tut/app/templates/base.html", line 29, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/sher/flask_tut/app/templates/index.html", line 8, in block "content"
+    {{ form.hidden_tag() }}
+  File "/home/sher/.local/lib/python3.6/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2020-04-18 21:10:26,632 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 21:11:10,569 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 21:59:35,682 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 22:08:54,674 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 22:31:08,543 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 22:31:14,725 ERROR: Exception on /index [GET] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/sher/flask_tut/app/routes.py", line 23, in index
+    posts = current_user.followed_post().paginate(page,app.config['POST_PER_PAGE'],False)
+UnboundLocalError: local variable 'page' referenced before assignment
+2020-04-18 22:32:06,475 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-18 22:32:09,107 ERROR: Exception on /index [GET] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sher/.local/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/sher/.local/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/sher/flask_tut/app/routes.py", line 23, in index
+    posts = current_user.followed_post().paginate(page,app.config['POST_PER_PAGE'],False)
+KeyError: 'POST_PER_PAGE'
+2020-04-18 22:32:39,128 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 01:47:19,275 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 01:53:01,312 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 01:53:54,870 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 01:54:23,514 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 01:59:04,216 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 02:32:03,311 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 02:32:31,903 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 02:37:19,787 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 02:41:29,882 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]
+2020-04-19 02:42:39,880 INFO: FlASK APP startup [in /home/sher/flask_tut/app/__init__.py:89]

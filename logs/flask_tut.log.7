@@ -1,4 +1,4 @@
-2020-04-13 01:28:14,524 ERROR: Exception on /register [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+2020-04-13 01:28:15,679 ERROR: Exception on /register [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/sher/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
     cursor, statement, parameters, context
@@ -67,9 +67,9 @@ Traceback (most recent call last):
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
 [SQL: INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?)]
-[parameters: ('sher1', 'anm@gmail.com', 'pbkdf2:sha256:150000$1Ab9o0fd$c9cb5d5fd2dd912d83be2f85caad8629c59764e6928c36c4eac566e12d606506', None, '2020-04-12 19:58:14.524401')]
+[parameters: ('sher1', 'anm@gmail.com', 'pbkdf2:sha256:150000$iD5ovvy1$da820e8523408c5149f3568ff75111ff25ce374772b0513feeed75e356ebd0f9', None, '2020-04-12 19:58:15.679133')]
 (Background on this error at: http://sqlalche.me/e/gkpj)
-2020-04-13 01:28:15,091 ERROR: Exception on /register [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
+2020-04-13 01:28:16,211 ERROR: Exception on /register [POST] [in /home/sher/.local/lib/python3.6/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/sher/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
     cursor, statement, parameters, context
@@ -138,5 +138,5 @@ Traceback (most recent call last):
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
 [SQL: INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?)]
-[parameters: ('sher1', 'anm@gmail.com', 'pbkdf2:sha256:150000$DJCPJbhk$bcaedfcf68d3d6fdc88094c3fd531b8a4f39413ade2191f1bcb68f694fc03ddd', None, '2020-04-12 19:58:15.090781')]
+[parameters: ('sher1', 'anm@gmail.com', 'pbkdf2:sha256:150000$45OxY5a5$1260d2b33b3f6119fa3f247668ee088ab2ae7e4de1dca2d37224210670c1537a', None, '2020-04-12 19:58:16.210701')]
 (Background on this error at: http://sqlalche.me/e/gkpj)
